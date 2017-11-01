@@ -1,0 +1,320 @@
+/* Définition des polices personnalisées */
+/* elles sont enlevées mais s'affichent toujours ! */
+
+
+/* Eléments principaux de la page */
+
+body
+{
+    background: url('images/fond_jaune.png');
+    font-family: 'Times New Roman', Arial, sans-serif;
+    color: #181818;
+    font-size: 1.2em;
+    width: 950px;
+    display: block;
+    margin: auto;
+}
+
+#bloc_page
+{
+    width: 1000px;
+    margin: auto;
+}
+
+#titreBlog
+{
+    width: 40%;
+ }
+
+#bref /*Me connaissez-vous ? */
+{
+    color: #FF7F50;
+
+}
+
+
+section h1, nav a
+{
+    
+    font-weight: normal;
+    font-size: 2em; /*quelques mots*/
+
+}
+
+/* Header */
+
+header
+{
+    align-items: center;
+    font-family: 'Times New Roman', sans-serif;
+   
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+    
+    color: #FF7F50;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    
+}
+
+
+h1
+{
+    font-weight: normal;
+    margin-bottom: 0em;
+}
+h2
+{
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 2em;
+    margin-top: 0px;
+    font-weight: normal;
+    display: flex;
+    flex-wrap: wrap;
+
+
+    
+}
+
+#titre_principal
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+} 
+
+#banniere_alaska
+{
+    text-align: center;
+    margin-top: 15px;
+    height: 400px;
+    width: 980px;
+    border-radius: 5px;
+    background: url('images/banniere_alaska.jpg') no-repeat;
+   
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+/* Navigation */
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+
+}
+
+nav li
+{
+    margin-right: 75px;
+
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 1px;
+    text-decoration: none;  
+
+}
+
+nav a:hover
+{
+    color: #FF7FF50;
+    border-bottom: 3px solid #FF7F50;
+}
+
+
+/* Corps */
+
+
+.titreBillet
+{
+    font-weight: bold;
+
+}
+
+
+article, aside
+{
+    text-align: justify;
+}
+
+
+.photo_Jean 
+{    
+    /* margin-top: 15px; */
+    margin-right: 15px;
+    height: 200px;
+    border-radius: 5px;
+    float: left;
+
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 15px;
+}    
+
+.dessous
+{
+    clear: both;
+}
+
+
+#banniere_Skagway
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/Skagway.jpg') no-repeat;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+#banniere_glacier
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/glacier.jpg') no-repeat;
+    width: 1000px;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+#banniere_maisons
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/maisons.jpg') no-repeat;
+    width: 1000px;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+#banniere_lumiere
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/lumiere.jpg') no-repeat;
+    width: 1000px;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+
+
+#banniere_description1, #banniere_description2, #banniere_description3, #banniere_description4
+{
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    width: 99.5%;
+    height: 33px;
+    padding-top: 15px;
+    padding-left: 4px;
+    background-color: rgba(24,24,24,0.8);
+    color: #ff7f50;
+    font-size: 1em;
+    
+}
+
+.bouton_bleu
+{
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background: url('images/fondbleu.jpg') repeat-x;
+    border: 1px solid #ff7f50;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 3px 8px 0px 8px;
+    color: white;
+    text-decoration: none;
+}
+
+#Chapitre1, #Chapitre2, #Chapitre3, #Chapitre4
+{
+    color: #FF7F50;
+    text-decoration: underline;
+    font-size: 20px;
+}
+
+
+
+
+
+/* Footer */
+.Inde, .Savane, .Preuves
+{
+    border: 4px solid #FF7F50;
+    
+    border-radius: 15px;
+    width: 280px;
+    height: 250px;
+    margin-right: 10px;
+    margin-left: 15px;
+   
+}
+
+#mes_romans
+{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+
+#Administration, #modifier
+{
+    height: 25px;
+    float: right;
+    right: 5px;
+    bottom: 5px;
+    background: url('images/fondorange.jpg') repeat-x;
+    border: 1px solid #FF7F50;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    padding: 3px 8px 0px 8px;
+    color: blue;     /* ------------------------------------------------------ne fonctionne pas !*/
+  
+}
+
+a
+{
+color: #FF7F50;
+text-decoration: underline;
+}
+
+
+
+hr
+{
+ 
+  border : 0.5px solid #FF7F50;
+}
+
+
+
+
+label {
+display:block;
+width:150px;
+float:left;
+border-color: #FFFFFF;
+}
+
+
