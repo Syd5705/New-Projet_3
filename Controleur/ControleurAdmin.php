@@ -30,5 +30,35 @@ class ControleurAdmin {
         $vue->generer(array('billets' => $billets));
     }
 
+public function ModifierBillets()
+{
+         // récupérer tous les billets + stocker dans 1 variable
+        $billets = $this->BilletManager->getBillets();
+        
+        // créer la vue ModifierBillets / l'instancier
+        $vue = new Vue("ModifierBillets");
+
+        // générer cette vue en lui passant la liste des billets en paramètre
+        $vue->generer(array('billets' => $billets));
+}
+   
+
+public function SupprimerBillets()
+{
+         // récupérer tous les billets + stocker dans 1 variable
+        $billets = $this->BilletManager->SupprimerBillets(); // c'était getBillets avant
+        
+        // créer la vue ModifierBillets / l'instancier
+        $vue = new Vue("SupprimerBillets");
+
+        // générer cette vue en lui passant la liste des billets en paramètre
+        $vue->generer(array('billets' => $billets));
+
+
+     
+}
+   
+
+      
 
 }
