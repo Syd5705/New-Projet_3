@@ -48,4 +48,12 @@ class BilletManager extends Modele {
             throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
     }
 
+
+// public function SupprimerBillets (){
+
+//      $sql = 'delete BIL_ID as id, BIL_DATE as date,'
+//              . ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'
+//            . ' order by BIL_ID desc';
+// }
+
 }
