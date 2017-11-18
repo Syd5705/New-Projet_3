@@ -7,11 +7,11 @@
 	<?php
 
 	if (isset($pseudo_password_empty) && $pseudo_password_empty) {
-		echo "Il faut entrer des Idds";
+		echo "<i>Il faut entrer l'identifiant et le mot de passe</i>";
 	}
 
 	if (isset($pseudo_password_incorrect) && $pseudo_password_incorrect) {
-	    echo "Ici on écrit un message d'erreur car le couple pseudo / password saisi n'existe pas en BDD";
+	    echo "<i>Oups ! Il semblerait qu'il y ait une erreur dans l'identifiant ou le mot de passe</i>";
     }
 
    

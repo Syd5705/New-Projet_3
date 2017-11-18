@@ -1,7 +1,6 @@
 <!-- on vient de créer la vue grâce au controleurbillet --> 
 
 
-<?php $this->titre = "Jean Forteroche" . $billet['titre']; ?>
 
 <article>
     <header>

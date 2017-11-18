@@ -1,10 +1,11 @@
 <?php $this->titre = "Jean Forteroche"; ?>
 
 <ul>
-                        <li><a href="index.php?action=Billets">Articles</a></li>
-                        <li><a href="index.php?action=Commentaires">Commentaires</a></li>
+                        <li><a href="index.php?action=chapitres">Articles</a></li>
+                        <li><a href="index.php?action=ListeTousCommentaires">Liste des Commentaires</a></li>
+                        <li><a href="index.php?action=CreationBillet">Créer un billet</a></li>
                                                
- </ul>
+</ul>
  
 
 <table>
@@ -20,8 +21,9 @@
             <td><time><?= $billet->date ?></time></td>
       
         	<td><p><?= substr($billet->contenu, 0, 30)?>...</p></td>
-        	<td><div id="modifier"><a href="index.php?action=ModifierBillets"><FONT COLOR="#f4c141">Modifier</FONT></a></div><a href="index.php?action=SupprimerBillets">Supprimer</a></td> 	
-
+        	<td><div id="modifier"><a href="<?= "index.php?action=ModifierBillet&id=" . $billet->id ?>"><FONT COLOR="#f4c141">Modifier</FONT></a></div></td>
+            <td><div id="supprimer"><a href="<?= "index.php?action=SupprimerBillet&id=" . $billet->id ?>"><FONT COLOR="#f4c141">Supprimer</FONT></a></div></td> 
+        
         	<!--  créer une nouvelle vue pour modifier -> comme pour afficher le billet ou supprimer -> afficher un pop-up 'voulez-vous vraiment supprimer cet article ?' -->
     </tr>
     

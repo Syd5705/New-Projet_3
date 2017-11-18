@@ -26,7 +26,7 @@
                             session_start();
                         }
                         
-                         if (isset($_SESSION) && $_SESSION['admin'])  // vérification de la variable admin qui existe si MDP correct et si variable session existe
+                         if (isset($_SESSION))   //  && $_SESSION['admin']    vérification de la variable admin qui existe si MDP correct et si variable session existe
                          { 
                              echo '<li><a href="index.php?action=Admin">Admin</a></li>';
 
