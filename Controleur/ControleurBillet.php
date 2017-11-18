@@ -4,7 +4,8 @@ require_once 'Modele/BilletManager.php';
 require_once 'Modele/CommentaireManager.php';
 require_once 'Vue/Vue.php';
 
-class ControleurBillet {
+class ControleurBillet
+{
 
     private $billet;
     private $commentaire;
@@ -25,10 +26,10 @@ class ControleurBillet {
     }
 
     // Ajoute un commentaire à un billet
-    public function commenter($auteur, $contenu, $idBillet) 
+    public function commenter($auteur, $contenu, $idBillet, $date) 
     {
         // Sauvegarde du commentaire
-        $this->CommentaireManager->ajouterCommentaire($auteur, $contenu, $idBillet);
+        $this->CommentaireManager->ajouterCommentaire($auteur, $contenu, $idBillet, $date);
         // Actualisation de l'affichage du billet
         $this->billet($idBillet);
     }
@@ -47,7 +48,31 @@ class ControleurBillet {
         $vue->generer(array('billets' => $billets));
     }
 
-   
-        
+
+
+     // Affiche les détails sur un commentaire
+    public function commentaire($idBillet) 
+    {     //on veut afficher le commentaire avec un ID précis, contrairement à la vue accueil où on affiche tous les commentaires
+        $commentaires = $this->CommentaireManager->getCommentaires($idCommentaire);
+        $vue = new Vue("commentaires");           //pour afficher une vue il faut instancier un objet de class vue. "commentaires" est un paramètre. les vues dvt tjrs s'appeler Vue("Nomdelavue"). on a maintenant notre objet vue. on va la générer en lui envoyant les infos
+        $vue->generer(array('commentaires' => $commentaires));  // va appeler la fct generer id mon objet. on va lui donner les infos que j'ai récupéré 2 lignes au dessus. ca va me créer des variables qui portent le nom de la clé (ici $billet et $commentaires).
     }
+
+    // Liste la totalité des commentaires
+    public function ListeTousCommentaires($idCommentaire, $auteur, $contenu, $date)
+    {
+        // récupérer tous les commentaires + stocker dans 1 variable
+        $Commentaires = $this->CommentairesManager->getCommentaires($idCommentaire, $auteur, $contenu, $date);
+        // var_dump($billets); 
+
+        // créer la vue chapitres / l'instancier
+        $vue = new Vue("Commentaires");
+
+        // générer cette vue en lui passant la liste des billets en paramètre
+        $vue->generer(array('Commentaires' => $Commentaires));
+    }
+
+
+        
+}
 

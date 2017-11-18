@@ -37,7 +37,8 @@ class Routeur {
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
-                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
+                    $date = $this->getParametre($_POST, 'date');
+                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet, $date);
                 }
 
                 else if ($_GET['action'] == 'chapitres')
@@ -45,7 +46,14 @@ class Routeur {
                     $this->ctrlBillet->listeBillets();
                 }
 
-
+                else if ($_GET['action'] == 'ListeTousCommentaires')
+                {
+                    $auteur = $this->getParametre($_POST, 'auteur');
+                    $contenu = $this->getParametre($_POST, 'contenu');
+                    $idCommentaire = $this->getParametre($_POST, 'id');
+                    $date = $this->getParametre($_POST, 'date');
+                    $this->ctrlBillet->listerTousCommentaires($idCommentaire);
+                }
 
 
 // Affiche la vueQuisuisje
@@ -55,10 +63,14 @@ class Routeur {
                     $this->ctrlAccueil->Quisuisje();
                 }
 
-
+//Affiche la vueCommentaires  ------------------ ----------------------------------------------------------------ne fct pas
+              //  elseif ($_GET['action'] == 'Commentaires')
+              //  {
+              //      $this->ctrlAdmin->listerCommentaires();
+              // }
 
 // Affiche la vueConnexion
-                else if ($_GET['action']=='Admin')
+                else if ($_GET['action'] =='Admin')
                 {
                     $this->ctrlAdmin->listeBillets();
                 }
@@ -67,9 +79,46 @@ class Routeur {
                     $this->ctrlConnexion->Connexion();
                 }
 
-//RAJOUTER UN ELSE IF POUR MODIFIERBILLETS ET SUPPRIMERBILLETS --------------------------------
+// Modification d'un billet
 
-                else  //sinon erreur
+                else if ($_GET['action'] == 'ModifierBillet')
+                {
+                    $idBillet = intval($this->getParametre($_GET, 'id'));  //on veut qu'il nous renvoie l'id sous la forme écrite de la valeur de l'ID. on utilise la fct intval pour transformer le texte numérique en valeur numérique
+                    if ($idBillet != 0) 
+                    {  //si l'id est different de 0.   ! = different de
+                        $this->ctrlAdmin->ModifierBillet($idBillet); //on appelle la fct billet du controleurbillet (ctrlbillet) en lui passant/lui donnant l'id du billet pour qu'on puisse s'en servir
+                    }
+                }
+
+                else if ($_GET['action']== 'enregistrerBillet')
+                {
+       //sinon si action = enregistrerBillet
+
+                    $titre = $this->getParametre($_POST, 'titre');
+                    $contenu = $this->getParametre($_POST, 'contenu');
+                    $idBillet = $this->getParametre($_POST, 'id');
+                    $this->ctrlAdmin->enregistrerBillet($titre, $contenu, $idBillet);
+                
+                }
+                else if ($_GET['action'] == 'SupprimerBillet')
+                {
+                    $idBillet = $this->getParametre($_GET, 'id');
+                    $this->ctrlAdmin->SupprimerBillet($idBillet);
+                }
+
+
+// si on souhaite créer un billet
+                else if ($_GET['action'] == 'CreationBillet')
+                {
+
+                    $titre = $this->getParametre($_POST, 'titre');
+                    $contenu = $this->getParametre($_POST, 'contenu');
+                    $idBillet = $this->getParametre($_POST, 'id');
+                    $this->ctrlAdmin->CreationBillet($titre, $contenu, $idBillet);
+                }
+
+
+            else  //sinon erreur
                     throw new Exception("Action non valide");
             }
             
