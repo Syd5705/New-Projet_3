@@ -19,12 +19,12 @@ class BilletManager extends Modele {
 
         foreach ($statement->fetchAll() as $ligne) {
             $billet=new Billet();   /** on instancie un objet de la classe billet */
-            $billet->id=$ligne['id'];
+            $billet->id=$ligne['id'];       
             $billet->date=$ligne['date'];
             $billet->titre=$ligne['titre'];
             $billet->contenu=$ligne['contenu'];
 
-            $billets[]=$billet;  /** on stock l'instance $billet */
+            $billets[]=$billet;  /** on stock l'instance $billet. billetS est un tableau regroupant tous les billets */
         }
 
         return $billets;
@@ -65,9 +65,21 @@ class BilletManager extends Modele {
 
     public function CreationBillet($titre, $contenu, $idBillet)
     {
-     $sql = 'insert into T_BILLET (BIL_TITRE, BIL_CONTENU, BIL_ID VALUES(BIL_TITRE, BIL_CONTENU, BIL_ID)';
-     $this->executerRequete($sql, array(':BIL_TITRE' => $titre, ':BIL_CONTENU' => $contenu, ':BIL_ID' => $idBillet));  
+     $sql = 'insert into T_BILLET (BIL_TITRE, BIL_CONTENU, BIL_ID)';
+     $this->executerRequete($sql, array($titre, $contenu, $idBillet));  
     }
+
+
+
+
+
+
+
+   
+
+
+
+
 
 
  // $sql = 'insert into T_BILLET (BIL_TITRE, BIL_CONTENU, BIL_ID VALUES(:BIL_TITRE, BIL_CONTENU, BIL_ID)'; ce que j'avais à la base
