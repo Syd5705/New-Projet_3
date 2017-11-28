@@ -21,24 +21,41 @@ class Routeur {
     }
 
     // Route une requête entrante : exécution l'action associée
-    public function routerRequete() {
-        try {
-            if (isset($_GET['action'])) {            // on vérifie qu'il y ait le mot action dans l'URL et qu'il y ait qqch écrit derriere le =
-                if ($_GET['action'] == 'billet') {      //SI action = billet
+    public function routerRequete() 
+    {
+        try 
+        {
+            if (isset($_GET['action'])) 
+            {            // on vérifie qu'il y ait le mot action dans l'URL et qu'il y ait qqch écrit derriere le =
+                if ($_GET['action'] == 'billet') 
+                {      //SI action = billet
                     $idBillet = intval($this->getParametre($_GET, 'id'));  //on veut qu'il nous renvoie l'id sous la forme écrite de la valeur de l'ID. on utilise la fct intval pour transformer le texte numérique en valeur numérique
-                    if ($idBillet != 0) {  //si l'id est different de 0.   ! = different de
+                    if ($idBillet != 0) 
+                    {  //si l'id est different de 0.   ! = different de
                         $this->ctrlBillet->billet($idBillet); //on appelle la fct billet du controleurbillet (ctrlbillet) en lui passant/lui donnant l'id du billet pour qu'on puisse s'en servir
                     }
+
+          //  if (isset($_GET['action'])) 
+          //  {            // on vérifie qu'il y ait le mot action dans l'URL et qu'il y ait qqch écrit derriere le =
+          //      if ($_GET['action'] == 'commentaire') 
+          //      {      //SI action = billet
+          //          $idcommentaire = intval($this->getParametre($_GET, 'id'));  //on veut qu'il nous renvoie l'id sous la forme écrite de la valeur de l'ID. on utilise la fct intval pour transformer le texte numérique en valeur numérique
+          //          if ($commentaire != 0) 
+          //          {  //si l'id est different de 0.   ! = different de
+          //              $this->ctrlBillet->billet($idcommentaire); //on appelle la fct billet du controleurbillet (ctrlbillet) en lui passant/lui donnant l'id du billet pour qu'on puisse s'en servir
+          //          }
+                   // --------------- --------------à adapter
+
                     else 
                         throw new Exception("Identifiant de billet non valide");
+
                 }
-                else if ($_GET['action'] == 'commenter') 
+                 else if ($_GET['action'] == 'commenter') 
                 {   //sinon si action = commenter
                     $auteur = $this->getParametre($_POST, 'auteur');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
-                    $date = $this->getParametre($_POST, 'date');
-                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet, $date);
+                    $this->ctrlBillet->commenter($auteur, $contenu, $idBillet);
                 }
 
                 else if ($_GET['action'] == 'chapitres')
@@ -46,14 +63,36 @@ class Routeur {
                     $this->ctrlBillet->listeBillets();
                 }
 
+//Affiche la vueCommentaires
                 else if ($_GET['action'] == 'ListeTousCommentaires')
                 {
-                    $auteur = $this->getParametre($_POST, 'auteur');
-                    $contenu = $this->getParametre($_POST, 'contenu');
-                    $idCommentaire = $this->getParametre($_POST, 'id');
-                    $date = $this->getParametre($_POST, 'date');
-                    $this->ctrlBillet->listerTousCommentaires($idCommentaire);
+
+                    $this->ctrlBillet->listeTousCommentaires();
                 }
+
+
+
+
+
+
+// Supprime le commentaire sélectionné
+                 else if ($_GET['action'] == 'SupprimerCommentaire')
+                {
+                    $idcommentaire = $this->getParametre($_GET, 'id');
+                    $this->ctrlBillet->SupprimerCommentaire($idcommentaire);
+                }
+
+// Signale le commentaire sélectionné
+                 else if ($_GET['action'] == 'SignalerCommentaire')
+                {
+                    $idcommentaire = $this->getParametre($_GET, 'id');
+                    $this->ctrlBillet->SignalerCommentaire($idcommentaire);
+                }
+
+
+
+
+
 
 
 // Affiche la vueQuisuisje
@@ -63,11 +102,8 @@ class Routeur {
                     $this->ctrlAccueil->Quisuisje();
                 }
 
-//Affiche la vueCommentaires  ------------------ ----------------------------------------------------------------ne fct pas
-              //  elseif ($_GET['action'] == 'Commentaires')
-              //  {
-              //      $this->ctrlAdmin->listerCommentaires();
-              // }
+  
+           
 
 // Affiche la vueConnexion
                 else if ($_GET['action'] =='Admin')
@@ -110,11 +146,10 @@ class Routeur {
 // si on souhaite créer un billet
                 else if ($_GET['action'] == 'CreationBillet')
                 {
-
                     $titre = $this->getParametre($_POST, 'titre');
                     $contenu = $this->getParametre($_POST, 'contenu');
                     $idBillet = $this->getParametre($_POST, 'id');
-                    $this->ctrlAdmin->CreationBillet($titre, $contenu, $idBillet);
+                   $this->ctrlAdmin->CreationBillet($titre, $contenu, $idBillet);
                 }
 
 

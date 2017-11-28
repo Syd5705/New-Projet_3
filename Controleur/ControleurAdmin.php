@@ -26,15 +26,7 @@ class ControleurAdmin {
         $vue->generer(array('billets' => $billets));
     }
 
-   //  public function listerCommentaires() ---------------------------------------------------------------NE FCT PAS
-   //   {
-   //      $commentaires = $this->CommentaireManager->listerCommentaires();
-   //      $vue = new Vue("Commentaires");
-   //      $vue->generer(array('commentaires' => $commentaires));
-   //  }
-
-
-    public function ModifierBillet($idBillet)
+      public function ModifierBillet($idBillet)
     {
          // récupérer tous les billets + stocker dans 1 variable
         $billet = $this->BilletManager->getBillet($idBillet);
@@ -79,5 +71,8 @@ class ControleurAdmin {
 
     }
        
+
+
+
 
 }
