@@ -11,12 +11,15 @@
    <br />
 
    <textarea>
-   <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-   <script>tinymce.init({ selector:'textarea', height : "480"});</script>
-   </textarea>
+   
+  </textarea>
      
    <input type="submit" value="Enregistrer" />
 
   </form>
   
 </article>
+
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea', height : "480"});</script>
+

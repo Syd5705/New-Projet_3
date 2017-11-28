@@ -1,7 +1,6 @@
-<?php $this->titre = "Jean Forteroche"; ?>
 
 <ul>
-                        <li><a href="index.php?action=chapitres">Articles</a></li>
+                        <li><a href="index.php?action=chapitres">Liste des Articles</a></li>
                         <li><a href="index.php?action=ListeTousCommentaires">Liste des Commentaires</a></li>
                         <li><a href="index.php?action=CreationBillet">Créer un billet</a></li>
                                                
